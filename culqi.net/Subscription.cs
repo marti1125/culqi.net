@@ -4,8 +4,6 @@ namespace culqi.net
 {
 	public class Subscription
 	{
-		Config config = new Config();
-
 		Security security { get; set; }
 
 		public Subscription(Security security)
@@ -15,12 +13,21 @@ namespace culqi.net
 
 		public string Create(SubscriptionModel subscription)
 		{
-			var client = new RestClient(config.url_api_base);
-			var request = new RestRequest("/subscriptions/", Method.POST);
-			request.AddJsonBody(subscription);
-			request.AddHeader("Authorization", "Bearer " + security.api_key);
-			IRestResponse response = client.Execute(request);
-			return response.Content;
+			Util util = new Util();
+			return util.Request(subscription, SubscriptionModel.URL, security.api_key, "post");
 		}
+
+		public string Get(String id)
+		{
+			Util util = new Util();
+			return util.Request(null, SubscriptionModel.URL + id + "/", security.api_key, "get");
+		}
+
+		public string Delete(String id)
+		{
+			Util util = new Util();
+			return util.Request(null, SubscriptionModel.URL + id + "/", security.api_key, "delete");
+		}
+
 	}
 }

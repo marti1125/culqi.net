@@ -7,6 +7,8 @@ namespace culqi.net
 		{
 		}
 
+		public const string URL = "/refunds/";
+
 		public int amount { get; set; }
 
 		public string charge_id { get; set; }

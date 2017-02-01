@@ -3,9 +3,7 @@ using RestSharp;
 namespace culqi.net
 {
 	public class Charge
-	{	
-		Config config = new Config();
-
+	{
 		Security security { get; set; }
 
 		public Charge(Security security)
@@ -14,13 +12,15 @@ namespace culqi.net
 		}
 
 		public string Create(ChargeModel charge)
+		{	
+			Util util = new Util();
+			return util.Request(charge, ChargeModel.URL, security.api_key, "post");
+		}
+
+		public string Get(String id)
 		{
-			var client = new RestClient(config.url_api_base);
-			var request = new RestRequest("/charges/", Method.POST);
-			request.AddJsonBody(charge);
-			request.AddHeader("Authorization", "Bearer " + security.api_key);
-			IRestResponse response = client.Execute(request);
-			return response.Content;
+			Util util = new Util();
+			return util.Request(null, ChargeModel.URL+id+"/", security.api_key, "get");
 		}
 
 	}

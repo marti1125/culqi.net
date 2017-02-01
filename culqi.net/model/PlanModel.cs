@@ -7,6 +7,8 @@ namespace culqi.net
 		{
 		}
 
+		public const string URL = "/plans/";
+
 		public string alias { get; set; }
 
 		public int amount { get; set; }

@@ -7,6 +7,8 @@ namespace culqi.net
 		{
 		}
 
+		public const string URL = "/tokens/";
+
 		public string card_number{ get; set; }
 
 		public string currency_code{ get; set; }

@@ -4,8 +4,6 @@ namespace culqi.net
 {
 	public class Refund
 	{
-		Config config = new Config();
-
 		Security security { get; set; }
 
 		public Refund(Security security)
@@ -15,12 +13,15 @@ namespace culqi.net
 
 		public string Create(RefundModel refund)
 		{
-			var client = new RestClient(config.url_api_base);
-			var request = new RestRequest("/refunds/", Method.POST);
-			request.AddJsonBody(refund);
-			request.AddHeader("Authorization", "Bearer " + security.api_key);
-			IRestResponse response = client.Execute(request);
-			return response.Content;
+			Util util = new Util();
+			return util.Request(refund, RefundModel.URL, security.api_key, "post");
 		}
+
+		public string Get(String id)
+		{
+			Util util = new Util();
+			return util.Request(null, RefundModel.URL + id + "/", security.api_key, "get");
+		}
+
 	}
 }

@@ -46,9 +46,13 @@
     <Compile Include="Plan.cs" />
     <Compile Include="Subscription.cs" />
     <Compile Include="Refund.cs" />
+    <Compile Include="util\Util.cs" />
+    <Compile Include="model\IinsModel.cs" />
+    <Compile Include="Iin.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="model\" />
+    <Folder Include="util\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

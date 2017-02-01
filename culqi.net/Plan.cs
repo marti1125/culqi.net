@@ -4,8 +4,6 @@ namespace culqi.net
 {
 	public class Plan
 	{	
-		Config config = new Config();
-
 		Security security { get; set; }
 
 		public Plan(Security security)
@@ -15,12 +13,14 @@ namespace culqi.net
 
 		public string Create(PlanModel plan)
 		{
-			var client = new RestClient(config.url_api_base);
-			var request = new RestRequest("/plans/", Method.POST);
-			request.AddJsonBody(plan);
-			request.AddHeader("Authorization", "Bearer " + security.api_key);
-			IRestResponse response = client.Execute(request);
-			return response.Content;
+			Util util = new Util();
+			return util.Request(plan, PlanModel.URL, security.api_key, "post");
+		}
+
+		public string Get(String id)
+		{
+			Util util = new Util();
+			return util.Request(null, PlanModel.URL + id + "/", security.api_key, "get");
 		}
 
 	}

@@ -7,6 +7,8 @@ namespace culqi.net
 		{
 		}
 
+		public const string URL = "/charges/";
+
 		public string address { get; set; }
 
 		public string address_city { get; set; }
