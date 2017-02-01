@@ -1,5 +1,4 @@
 ﻿using System;
-using RestSharp;
 namespace culqi.net
 {
 	public class Token

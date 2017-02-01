@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using RestSharp;
 namespace culqi.net
 {
@@ -19,6 +20,14 @@ namespace culqi.net
 			if (type_method.Equals("get"))
 			{
 				request = new RestRequest(url, Method.GET);
+				if (model != null)
+				{
+					Dictionary<string, string> query_params = (Dictionary<string, string>)model;
+					foreach (KeyValuePair<string, string> entry in query_params)
+					{
+						request.AddParameter(entry.Key, entry.Value, ParameterType.QueryString);
+					}
+				}
 			}
 			else if (type_method.Equals("delete")) 
 			{

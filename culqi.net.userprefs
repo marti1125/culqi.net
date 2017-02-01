@@ -1,14 +1,5 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workbench ActiveDocument="culqi.net/Token.cs">
-    <Files>
-      <File FileName="culqi.net/Subscription.cs" Line="6" Column="3" />
-      <File FileName="culqi.net/Charge.cs" Line="6" Column="3" />
-      <File FileName="culqi.net/Iin.cs" Line="5" Column="4" />
-      <File FileName="culqi.net/Plan.cs" Line="6" Column="4" />
-      <File FileName="culqi.net/Refund.cs" Line="6" Column="3" />
-      <File FileName="culqi.net/Token.cs" Line="6" Column="4" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
